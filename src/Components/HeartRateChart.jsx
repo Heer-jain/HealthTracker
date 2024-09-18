@@ -1,0 +1,38 @@
+import  { useEffect, useState } from 'react';
+import Chart from './Chart';
+import axios from 'axios';
+
+const HeartRateChart = () => {
+  const [dataValue, setDataValue] = useState([]);
+  const [dataLabel, setDataLabel] = useState([]);
+
+  const fetchRecords = async () => {
+    try {
+      const response = await axios.get('http://localhost:3000/');
+      if (!response) {
+        throw new Error(`Error ->  ${response.status}`);
+      }
+      const heartRate = response.data.result.map(record => record.heartRate);
+      const dates = response.data.result.map(record => record.date);
+
+      setDataValue(heartRate);
+      setDataLabel(dates);      
+
+      console.log("Temperatures, Dates: ", heartRate, dates);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchRecords();
+  }, []);
+
+  return (
+    <div className='h-80'>
+      <Chart data={dataValue} labels={dataLabel} title="Heart Rate" width={400} />
+    </div>
+  );
+};
+
+export default HeartRateChart;
