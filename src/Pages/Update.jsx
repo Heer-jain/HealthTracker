@@ -12,7 +12,7 @@ const Update = () => {
   useEffect(() => {
     const fetchRecord = async () => {
       try {
-        const response = await axios.get(`https://health-tracker-nu.vercel.app/record/${id}`);
+        const response = await axios.get(`http://localhost:3000/record/${id}`);
         const data = response.data.result;
         console.log(data)
         setRecordInfo({
@@ -40,7 +40,7 @@ const Update = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`https://health-tracker-nu.vercel.app/${id}`, recordInfo);
+      await axios.put(`http://localhost:3000/${id}`, recordInfo);
       navigate('/records');
       setRecordInfo({
         date: "",
