@@ -8,7 +8,7 @@ const HeartRateChart = () => {
 
   const fetchRecords = async () => {
     try {
-      const response = await axios.get('https://health-tracker-nu.vercel.app/');
+      const response = await axios.get('http://localhost:3000/');
       if (!response) {
         throw new Error(`Error ->  ${response.status}`);
       }
