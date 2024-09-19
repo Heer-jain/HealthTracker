@@ -14,7 +14,7 @@ const Dashboard = () => {
 
   const fetchRecent = async() => {
     try {
-        const fetchedRecords = await axios.get('https://health-tracker-nu.vercel.app/recent')
+        const fetchedRecords = await axios.get('http://localhost:3000/recent')
         if(!fetchedRecords){
           throw new Error(`Error ->  ${recentRecords.status}`)
         }
