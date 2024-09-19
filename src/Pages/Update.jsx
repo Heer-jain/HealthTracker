@@ -12,7 +12,7 @@ const Update = () => {
   useEffect(() => {
     const fetchRecord = async () => {
       try {
-        const response = await axios.get(`http://localhost:3000/record/${id}`);
+        const response = await axios.get(`https://health-tracker-nu.vercel.app/record/${id}`);
         const data = response.data.result;
         console.log(data)
         setRecordInfo({
@@ -22,7 +22,7 @@ const Update = () => {
           heartRate: data.heartRate
         });
       } catch (error) {
-        console.error('Error fetching health data:', error);
+        alert('Error fetching health data:', error);
       }
     };
     fetchRecord();
@@ -40,7 +40,7 @@ const Update = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:3000/${id}`, recordInfo);
+      await axios.put(`https://health-tracker-nu.vercel.app/${id}`, recordInfo);
       navigate('/records');
       setRecordInfo({
         date: "",
@@ -56,7 +56,7 @@ const Update = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div className='flex p-10 justify-center align-middle bg-slate-100'>
-        <div className='w-[40%] p-10 shadow-md shadow-blue-400 rounded-2xl bg-white  text-blue-500 space-y-4'>
+        <div className='w-[100%] md:[50%] p-10 shadow-md shadow-blue-400 rounded-2xl bg-white  text-blue-500 space-y-4'>
         <h1 className='text-4xl m-4 font-semibold text-center'>Update Record</h1>
         <div>
             <label htmlFor="date" className="block font-medium text-text">Date</label>
