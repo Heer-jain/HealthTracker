@@ -8,7 +8,7 @@ const BodyTempChart = () => {
 
   const fetchRecords = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/');
+      const response = await axios.get('https://health-tracker-nu.vercel.app/');
       if (!response) {
         throw new Error(`Error ->  ${response.status}`);
       }
@@ -18,9 +18,8 @@ const BodyTempChart = () => {
       setDataValue(temperatures);
       setDataLabel(dates);      
 
-      console.log("Temperatures, Dates: ", temperatures, dates);
     } catch (error) {
-      console.log(error);
+     alert(error);
     }
   };
 
