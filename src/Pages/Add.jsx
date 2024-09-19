@@ -33,7 +33,7 @@ const Add = () => {
             bloodPressure: "",
         })
         try {
-            const response = await axios.post('http://localhost:3000/', newRecord)
+            const response = await axios.post('https://health-tracker-nu.vercel.app/', newRecord)
             const {success,message} = response.data
             if(success === true){
                 alert("Saved Successfully")
