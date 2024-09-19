@@ -6,7 +6,7 @@ function Search() {
   
   const searchRecord = async (value) => {
     try {
-      const response = await fetch('http://localhost:3000/', { method: 'GET' });
+      const response = await fetch('https://health-tracker-nu.vercel.app/', { method: 'GET' });
       const data = await response.json();
   
       if (Array.isArray(data.result)) {
