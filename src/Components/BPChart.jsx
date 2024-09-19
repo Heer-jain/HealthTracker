@@ -8,7 +8,7 @@ const BPSystolicChart = () => {
 
   const fetchRecords = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/');
+      const response = await axios.get('https://health-tracker-nu.vercel.app/');
       if (!response) {
         throw new Error(`Error ->  ${response.status}`);
       }
@@ -18,9 +18,8 @@ const BPSystolicChart = () => {
       setDataValue(BPSystolic);
       setDataLabel(dates);      
 
-      console.log("Temperatures, Dates: ", BPSystolic, dates);
     } catch (error) {
-      console.log(error);
+      alert(error);
     }
   };
 
