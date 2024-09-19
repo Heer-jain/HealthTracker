@@ -8,11 +8,7 @@ require('dotenv').config()
 require('./Models/db')
 
 app.use(bodyParser.json())
-app.use(cors({
-  origin: ["https://health-tracker-nu.vercel.app/"],
-  methods: ["POST", "GET", "DELETE", "PUT"],
-  credentials: true
-}))
+app.use(cors())
 app.use('/', HealthRecordRouter)
 
 
